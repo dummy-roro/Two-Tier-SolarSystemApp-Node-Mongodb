@@ -140,7 +140,7 @@ pipeline {
             }
         }
 
-        stage('Deploy - AWS EC2') {
+        /*stage('Deploy - AWS EC2') {
             when {
                 branch pattern: "feature/.*", comparator: "REGEXP"
             }
@@ -174,7 +174,7 @@ pipeline {
                     sh 'bash integration-testing-ec2.sh'
                 }
             }
-        }
+        }*/
 
         stage('K8S - Update Image Tag') {
             when {
