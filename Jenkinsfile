@@ -174,7 +174,7 @@ pipeline {
                     sh 'bash integration-testing-ec2.sh'
                 }
             }
-        }*/
+        }
 
         stage('K8S - Update Image Tag') {
             when {
@@ -268,7 +268,7 @@ pipeline {
                     input message: 'Deploy to Production?', ok: 'YES! Let us try this on Production', submitter: 'admin'
                 }
             }
-        }
+        }*/
     }
 
     post {
