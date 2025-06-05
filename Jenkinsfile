@@ -6,12 +6,12 @@ pipeline {
     }
 
     environment {
-        MONGO_URI = "mongodb+srv://supercluster.d83jj.mongodb.net/superData"
+        MONGO_URI = "mongodb+srv://dummycluster.d83jj.mongodb.net/superData"
         MONGO_DB_CREDS = credentials('mongo-db-credentials')
         MONGO_USERNAME = credentials('mongo-db-username')
         MONGO_PASSWORD = credentials('mongo-db-password')
         SONAR_SCANNER_HOME = tool 'sonarqube-scanner-610';
-        GITEA_TOKEN = credentials('gitea-api-token')
+        GIT_TOKEN = credentials('gitea-api-token')
     }
 
     options {
@@ -91,8 +91,14 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh  'printenv'
-                sh  'docker build -t siddharth67/solar-system:$GIT_COMMIT .'
+                sh 'printenv'
+                sh """
+                    docker build \
+                    --build-arg MONGO_URI=${MONGO_URI} \
+                    --build-arg MONGO_USERNAME=${MONGO_USERNAME} \
+                    --build-arg MONGO_PASSWORD=${MONGO_PASSWORD} \
+                    -t siddharth67/solar-system:$GIT_COMMIT .
+                """
             }
         }
 
