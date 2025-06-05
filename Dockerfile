@@ -14,13 +14,9 @@ RUN npm install
 COPY . .
 
 # Set environment variables for MongoDB connection
-ARG MONGO_URI
-ARG MONGO_USERNAME
-ARG MONGO_PASSWORD
-
-ENV MONGO_URI=$MONGO_URI
-ENV MONGO_USERNAME=$MONGO_USERNAME
-ENV MONGO_PASSWORD=$MONGO_PASSWORD
+ENV MONGO_URI=uriPlaceholder
+ENV MONGO_USERNAME=usernamePlaceholder
+ENV MONGO_PASSWORD=passwordPlaceholder
 
 # Expose port 3000 to allow access to the app from outside the container
 EXPOSE 3000
