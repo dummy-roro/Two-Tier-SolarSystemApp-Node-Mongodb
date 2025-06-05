@@ -12,15 +12,28 @@ pipeline {
         MONGO_PASSWORD = credentials('mongo-db-password')
         SONAR_SCANNER_HOME = tool 'sonarqube-scanner-610';
         EC2_IP = '<UR_EC2_IP>'  // Or get it from credentials or elsewhere
-        GIT_TOKEN = credentials('gitea-api-token')
+        GIT_TOKEN = credentials('git-api-token')
     }
 
     options {
         disableResume()
         disableConcurrentBuilds abortPrevious: true
-    }
+    }    
 
     stages {
+        stages {
+        stage('Cleaning Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+        
+        stage('Checkout from Git') {
+            steps {
+                git credentialsId: 'GITHUB', url: 'https://github.com/dummy-roro/solar-system.git'
+            }
+        }
+            
         stage('Installing Dependencies') {
             options { timestamps() }
             steps {
