@@ -16,12 +16,12 @@ pipeline {
     }
 
     options {
+        timestamps()
         disableResume()
         disableConcurrentBuilds abortPrevious: true
     }    
 
     stages {
-        stages {
         stage('Cleaning Workspace') {
             steps {
                 cleanWs()
@@ -98,8 +98,8 @@ pipeline {
                                 -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
                         '''
                     }
-                    waitForQualityGate abortPipeline: true
                 }
+                waitForQualityGate abortPipeline: true
             }
         }
  
@@ -163,7 +163,7 @@ pipeline {
             }
             steps {
                 sshagent(['aws-dev-deploy-ec2-instance']) {
-                    sh '''
+                    sh """
                         ssh -o StrictHostKeyChecking=no ubuntu@${EC2_IP} '
                             if sudo docker ps -a --format "{{.Names}}" | grep -q "^solar-system$"; then
                                 echo "Stopping and removing existing container..."
@@ -178,7 +178,7 @@ pipeline {
                                 -e MONGO_PASSWORD=${MONGO_PASSWORD} \
                                 -p 3000:3000 -d dummyroro/solar-system:1.0.${BUILD_NUMBER}
                         '
-                    '''
+                    """
                 }
             }
         }
@@ -265,7 +265,7 @@ pipeline {
             }
             steps {
                 def zapApiUrl = "http://<IP_OF_K8POD>:30000/api-docs/"  // Replace this with actual URL or use env var
-                sh '''
+                sh """
                     chmod 777 $(pwd)
                     docker run -v $(pwd):/zap/wrk/:rw ghcr.io/zaproxy/zaproxy zap-api-scan.py \
                         -t ${zapApiUrl} \\
@@ -275,7 +275,7 @@ pipeline {
                         -J zap_json_report.json \
                         -x zap_xml_report.xml \
                         -c zap_ignore_rules
-                '''
+                """
             }
         }
 
