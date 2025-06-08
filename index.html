@@ -23,7 +23,7 @@
       <link rel="icon" type="image/x-icon" href="https://gitlab.com/sidd-harth/solar-system/-/raw/main/images/saturn.png">
       <style> 
          #planetImage { 
-            background: url('https://gitlab.com/sidd-harth/solar-system/-/raw/main/images/solar-system.png')   center center; 
+            background: url('https://gitlab.com/sidd-harth/solar-system/-/raw/main/images/solar-system.png') center center; 
             background-repeat: no-repeat;			   
             background-size: cover; 
             content: ''; 
@@ -41,51 +41,47 @@
             justify-content: center; 
             background: url('https://gitlab.com/sidd-harth/solar-system/-/raw/main/images/background.gif'); 
          } 
-         /*.shadow { 
-         animation: rainbow 2s linear infinite; 
-         } */ 
       </style>
    </head>
    <body>
 
       <div>
-        <div>
-         <a href="index.html">
-            <button
-               style=" font-size: 40px; 
-                   background: rgb(50,43,167);
-                   background: linear-gradient(90deg, rgba(50,43,167,1) 0%, rgba(82,41,124,1) 0%, rgba(137,26,205,1) 100%);
-                   color:white;
-                   font-family: 'Orbitron', sans-serif;
-                   border-radius: 25px;     
-                   border: 2px solid rgb(35, 34, 36);    
-                   width: 600px; 
-                   height: 70px;
-                   text-align: center;
-                   line-height: initial;
-                   border-width: 1px 1px 3px"> SOLAR <i class="fa fa-rocket"></i> SYSTEM 5.0  </button> 
+         <div>
+            <a href="index.html">
+               <button
+                  style=" font-size: 40px; 
+                      background: rgb(50,43,167);
+                      background: linear-gradient(90deg, rgba(50,43,167,1) 0%, rgba(82,41,124,1) 0%, rgba(137,26,205,1) 100%);
+                      color:white;
+                      font-family: 'Orbitron', sans-serif;
+                      border-radius: 25px;     
+                      border: 2px solid rgb(35, 34, 36);    
+                      width: 600px; 
+                      height: 70px;
+                      text-align: center;
+                      line-height: initial;
+                      border-width: 1px 1px 3px"> SOLAR <i class="fa fa-rocket"></i> SYSTEM 5.0  </button> 
             </a>
-           
-        </div>
-        <br>
+         </div>
+         <br>
          <input type="submit"  id="submit" value="Search the Planet" 
-         style="float: right;
-             background-color:rgb(187, 75, 243);
-             color:white;
-             font-family: 'Ubuntu';
-             border-radius: 25px;     
-             border: 2px solid #609;    
-             padding: 20px; 
-             width: 200px; 
-             text-align:center;" /> 
+            style="float: right;
+                background-color:rgb(187, 75, 243);
+                color:white;
+                font-family: 'Ubuntu';
+                border-radius: 25px;     
+                border: 2px solid #609;    
+                padding: 20px; 
+                width: 200px; 
+                text-align:center;" /> 
          <div style="overflow: hidden; padding-right: .5em;" > 
             <input type="number" id="planetID" name="number" 
-            style="width: 100%;
-            background-color:rgb(218, 204, 226);
-            text-align:center; 
-            border-radius: 25px;     
-            border: 2px solid #609;    
-            padding: 20px;" placeholder="Enter a number(0 - 8) to view the planets"/> 
+               style="width: 100%;
+               background-color:rgb(218, 204, 226);
+               text-align:center; 
+               border-radius: 25px;     
+               border: 2px solid #609;    
+               padding: 20px;" placeholder="Enter a number(0 - 8) to view the planets"/> 
          </div>
          <div class="middle">
             <h1 style="color:rgb(247, 145, 95); font-family: 'Encode Sans';" id="planetName"> Solar System </h1>
@@ -96,12 +92,11 @@
          <br>
          <div class="middle">
             <h2 style="color:rgb(93, 150, 237); font-family: 'BioRhyme';"  id="hostname">Solar System Pod Name</h2>
-
-            <!-- <h3 style="color:rgb(111, 255, 171); font-family: 'Encode Sans';" id="environment">ENVIRONMENT: " placeholder "</h3> -->
          </div>
       </div>
       <div  id="planetImage">  
       </div>
+
       <script type="text/javascript"  src="app-controller.js" charset="utf-8"></script>
    </body>
 </html>
