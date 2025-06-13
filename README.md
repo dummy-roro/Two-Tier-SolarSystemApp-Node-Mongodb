@@ -1,5 +1,10 @@
 # Solar System NodeJS Application
 
+[![LinkedIn](https://img.shields.io/badge/Connect%20with%20me%20on-LinkedIn-blue.svg)](https://www.linkedin.com/in/myat-soe-aumg/)
+[![GitHub](https://img.shields.io/github/stars/dummy-roro.svg?style=social)](https://github.com/dummy-roro)
+[![AWS](https://img.shields.io/badge/AWS-%F0%9F%9B%A1-orange)](https://aws.amazon.com)
+[![Terraform](https://img.shields.io/badge/Terraform-%E2%9C%A8-lightgrey)](https://www.terraform.io)
+
 A simple HTML+MongoDB+NodeJS project to display Solar System and it's planets. This is a two-tier web application and deployed via Jenkins using a full DevSecOps CI/CD pipeline.
 
 ---
